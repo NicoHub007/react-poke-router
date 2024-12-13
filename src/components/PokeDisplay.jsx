@@ -1,9 +1,21 @@
-import React from 'react'
+import pokeball from '../images/pokemon-1536849_1280.png';
 
-function PokeDisplay() {
-  return (
-    <div>PokeDisplay</div>
-  )
+function PokeDisplay({ pokemon }) {
+    console.log(pokemon);
+
+    const loaded = () => {
+        return <img src={pokemon.sprites['front_default']} />
+    };
+
+    const loading = () => {
+        return (
+            <>
+                <img src={pokeball} alt='pokeball' height='50px' />
+                <h3>Still Waiting</h3>
+            </>
+        )
+    };
+    return (pokemon && pokemon.sprites ? loaded() : loading());
 }
 
 export default PokeDisplay
